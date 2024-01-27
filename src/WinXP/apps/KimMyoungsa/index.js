@@ -26,6 +26,7 @@ import dropdown from "assets/windowsIcons/dropdown.png";
 function useNavigationHistory() {
   const [historyStack, setHistoryStack] = useState([]);
   const location = useLocation();
+  const { pathname } = location;
 
   useEffect(() => {
     // 현재 위치를 히스토리 스택에 추가
@@ -34,18 +35,14 @@ function useNavigationHistory() {
 
   return {
     canGoBack: historyStack.length > 1, // 첫 번째 페이지가 아니면 뒤로 갈 수 있음
+    pathname
   };
 }
 
 
 function KimMyoungsa({ onClose }) {
   const navigate = useNavigate()
-  const { canGoBack } = useNavigationHistory();
-
-  //맨 처음 상태 
-  const [state, setState] = useState({
-    route: "main",
-  });
+  const { canGoBack, pathname } = useNavigationHistory();
 
   function goBack(){
     navigate(-1)
@@ -150,11 +147,7 @@ function KimMyoungsa({ onClose }) {
         <div className="ie__address_bar__content">
           <img src={ie} alt="ie" className="ie__address_bar__content__img" />
           <div className="ie__address_bar__content__text">
-          {`https://www.KimMyoungSa.com${
-            ["myMyoungham", "home", "aboutUS"].includes(state.route)
-              ? `/${state.route}`
-              : ""
-          }`}
+          {`https://www.KimMyoungSa.com${pathname}`}
           </div>
           <img
             src={dropdown}
@@ -181,9 +174,7 @@ function KimMyoungsa({ onClose }) {
 
       <div className="ie__content">
         <div className="ie__content__inner">
-            <KimPage
-              route={state.route}
-           />
+            <KimPage/>
         </div>
       </div>
 

@@ -6,15 +6,9 @@ import Main from './Main';
 import NotFound from './NotFound';
 
 export function KimPage() {
-  const [route, setRoute] = useState('main');
   const location = useLocation();
-
-  useEffect(() => {
-    // 현재 경로(location.pathname)에 따라 route 상태 업데이트
-    const currentPath = location.pathname.replace('/', '') || 'main';
-    setRoute(currentPath);
-    console.log(currentPath);
-  }, [location]);
+  const { pathname } = location;
+  console.log(pathname);
 
   return (
     <Routes>

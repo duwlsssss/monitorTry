@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import style from './kimPage.css'
 
 function Header() {
   return (
@@ -12,9 +12,4 @@ function Header() {
   );
 }
 
-export default styled(Header)`
-  height: 100%;
-  background: white;
-  padding-top: 22px;
-  position: relative;
-`;
+export default Header

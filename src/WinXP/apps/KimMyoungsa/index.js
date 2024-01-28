@@ -401,15 +401,13 @@ const Div = styled.div`
     overflow: auto;
     padding-left: 1px;
     border-left: 1px solid #6f6f6f;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     position: relative;
   }
   .ie__content__inner {
     position: relative;
     min-height: 800px;
     min-width: 800px;
-    width: 100%;
-    height: 100%;
   }
   .ie__footer {
     height: 20px;

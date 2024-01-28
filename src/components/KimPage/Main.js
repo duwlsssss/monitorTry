@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import logoImg from "assets/kimPageIcons/임시로고.png"
-import styled from 'styled-components'
+import style from './kimPage.css'
 
 function Main(){
   return(
@@ -25,12 +25,4 @@ function Main(){
   )
 }
 
-export default styled(Main)`
-  height: 100%;
-  background: white;
-  padding-top: 22px;
-  position: relative;
-  @media (max-width: 600px) {
-    
-  }
-`;
+export default Main

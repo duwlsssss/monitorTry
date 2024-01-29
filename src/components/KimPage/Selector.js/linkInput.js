@@ -13,7 +13,7 @@ const DailyLifeLinkInput = () => {
       <input
         type="url"
         id="dailyLifeLink"
-        placeholder="일상을 나타내는 링크를 입력하세요"
+        placeholder="인스타그램 아이디"
         value={dailyLifeLink}
         onChange={handleDailyLifeLinkChange}
       />

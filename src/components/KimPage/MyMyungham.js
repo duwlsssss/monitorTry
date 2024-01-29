@@ -3,6 +3,8 @@ import Header from "./Header";
 import styled from 'styled-components';
 import { useEffect, useState } from "react"
 import api from '../api/axios'
+import { Title } from "./AboutUs";
+
 import UniversitySelector from '../KimPage/Selector.js/univSelector';
 import JobSelector from "./Selector.js/sessionSelector";
 import MbtiSelector from "./Selector.js/MbtiSelector";
@@ -59,7 +61,7 @@ const addCard=async(event)=>{
     
     <div> 
       <Header/>         
-      <h1>대학생 명함 문화 주도, 김명사</h1>
+      <Title>대학생 명함 문화 주도, 김명사</Title>
       <h3>대학생도 명함이 필요합니다.</h3>
       <form>
           <input type="text" onChange={(event)=>setName(event.target.value)} placeholder="이름"/><br/>

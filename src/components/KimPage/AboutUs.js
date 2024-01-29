@@ -1,15 +1,45 @@
 import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
-import styled from 'styled-components';
+
+const ImgBox = styled.div`
+  width:200px;
+  height:250px;
+  background-color:grey;
+  margin:40px;
+`
 
 function AboutUs(){
+
   return(
+  
     <div>
+      
       <Header/>
-      <h1>김.명.사 제작팀을 소개합니다.</h1>
+      <Title>김.명.사 제작팀을 소개합니다.</Title>
+      <hr/>
+
+      <ImgBox>김다슬 img</ImgBox>
+      <ImgBox>김수현 img</ImgBox>
+      <ImgBox>김여진 img</ImgBox>
     </div>
   )
 }
+export const Title = styled.h1`       
+  font-size: 30px;             
+  text-align: center;          
+  @font-face {
+    font-family: 'DOSSaemmul';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  font-family: 'DOSSaemmul';
+  margin: 1em 1em;
+  
+`; 
+
 
 export default styled(AboutUs)`
   height: 100%;
@@ -70,5 +100,8 @@ export default styled(AboutUs)`
     footer .left .item {
       margin-right: 15px;
     }
+    
+
+    
   }
 `;

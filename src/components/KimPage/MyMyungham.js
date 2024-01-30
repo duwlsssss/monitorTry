@@ -28,7 +28,7 @@ function MyMyungham(){
 
 //   const getCards=async()=>{
 //     const response = await api.get('/cards')
-//     console.log("rrrrrrrrr",response)
+//     console.log(response)
 // }
 
 // useEffect(()=>{

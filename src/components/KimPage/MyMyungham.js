@@ -40,6 +40,9 @@ const addCard=async(event)=>{
   
   event.preventDefault(); //기본 제출 방지
 
+  // 부모 페이지로 메시지 전송_iframe 소통
+  window.parent.postMessage('danceChange', '*');
+
   try{
 
       const response = await api.post('/cards',{

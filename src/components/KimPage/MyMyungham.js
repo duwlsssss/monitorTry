@@ -5,42 +5,54 @@ import { useEffect, useState } from "react"
 import api from '../api/axios'
 import { Title } from "./AboutUs";
 
-import UniversitySelector from '../KimPage/Selector.js/univSelector';
-import JobSelector from "./Selector.js/sessionSelector";
+
+import SchoolSelector from "./Selector.js/schoolSelector";
 import MbtiSelector from "./Selector.js/MbtiSelector";
-import EmailInput from "./Selector.js/emailInput";
-import DailyLifeLinkInput from "./Selector.js/linkInput";
-import BirthdayInput from "./Selector.js/birthInput";
+import SessionSelector from "./Selector.js/sessionSelector";
+
+
+
 
 
 function MyMyungham(){
  
-  const [name, setName] = useState('');
-  const [school, setSchool] = useState('');
-  const [age, setAge] = useState('');
-  const [session, setSession] = useState('');
-  const [MBTi, setMBTi] = useState('');
-  const [cardList, setCardList] = useState([]);
-  
-  const getCards=async()=>{
-    const response = await api.get('/cards')
-    console.log("rrrrrrrrr",response)
-}
+  const [name, setName] = useState(''); //이름
+  const [engName, setEngName] = useState (''); //영문 네임 
+  const [major, setMajor]= useState (''); //전공 
+  const [studentNum, setStudentNum]=useState(''); //학번
+  const [email, setEmail] = useState(''); //이메일
+  const [ig, setIg] = useState(''); //인스타 아이디
+  const [school, setSchool] = useState(''); // 학교
+  const [session, setSession] = useState(''); // 세션
+  const [MBTI, setMBTI] = useState(''); // MBTI
 
-useEffect(()=>{
-    getCards();
-},[])
+//   const getCards=async()=>{
+//     const response = await api.get('/cards')
+//     console.log("rrrrrrrrr",response)
+// }
+
+// useEffect(()=>{
+//     getCards();
+// },[])
+
 
 const addCard=async(event)=>{
-        
+  
   event.preventDefault(); //기본 제출 방지
+
   try{
+
       const response = await api.post('/cards',{
-          name: name,
-          school: school,
-          age: age,
-          session: session,
-          MBTi: MBTi
+          name :name,
+          engName : engName,
+          school : school,
+          major : major,
+          studentNum : studentNum,
+          email :email,
+          session :session,
+          MBTI: MBTI,
+          ig: ig
+
       });
     
       console.log('API 응답:', response);
@@ -55,6 +67,7 @@ const addCard=async(event)=>{
       console.error('에러', err);
   }
 }
+
   
   return(
 
@@ -62,26 +75,35 @@ const addCard=async(event)=>{
     <div> 
       <Header/>         
       <Title>대학생 명함 문화 주도, 김명사</Title>
-      <h3>대학생도 명함이 필요합니다.</h3>
+      
+      <StyledMyMyungham>
       <form>
-          <input type="text" onChange={(event)=>setName(event.target.value)} placeholder="이름"/><br/>
-          <input type="text" onChange={(event)=>setAge(event.target.value)} placeholder="영문 이름"/><br/>
-          <BirthdayInput/>
-          <UniversitySelector />
-          <input type="text" onChange={(event)=>setAge(event.target.value)} placeholder="학과"/><br/>
-          <input type="text" onChange={(event)=>setAge(event.target.value)} placeholder="학번"/><br/>
-          <JobSelector/>
-          <MbtiSelector/>
-          <EmailInput/>
-          <DailyLifeLinkInput/>
-          <br/>
+
+          <input type="text" value={name} name="name" onChange={(event)=>setName(event.target.value)} placeholder="이름"/><br/>
+          <input type="text" value={engName} name="engName" onChange={(event)=>setEngName(event.target.value)} placeholder="영문 이름 혹은 닉네임"/><br/>
+          <SchoolSelector onSelectSchool={(selectedSchool) => setSchool(selectedSchool)}/>
+          <input type="text" value={major} name="major" onChange={(event)=>setMajor(event.target.value)} placeholder="학과"/><br/>
+          <input type="text" value={studentNum} name ="studentNum" onChange={(event)=>setStudentNum(event.target.value)} placeholder="학번"/><br/>
+          <SessionSelector onSelectSession={(selectedSession) => setSession(selectedSession)}/>
+          <MbtiSelector onSelectMBTI={(selectedMBTI) => setMBTI(selectedMBTI)}/>
+          <input type="email" name="email" placeholder="이메일을 입력하세요" value={email} onChange={(event) => {
+          setEmail(event.target.value);}}/>
+          <input type="text" name="ig" placeholder="인스타그램 아이디" value={ig} onChange={(event)=>{setIg(event.target.value)}}/>
+
+          <br/> 
+
           <button onClick={addCard}>인쇄</button>
+
       </form>
+      </StyledMyMyungham>
     </div>
   )
 }
 
+
+//스타일 컴포넌트
 export default styled(MyMyungham)`
+  
   height: 100%;
   background: white;
   padding-top: 22px;
@@ -285,5 +307,58 @@ export default styled(MyMyungham)`
     footer .left .item {
       margin-right: 15px;
     }
+  }
+`;
+
+const StyledMyMyungham = styled.div`
+  height: 100%;
+  background: whitegrey;
+  margin-top: 10px;
+  position: relative;
+  font-family: 'DOSSaemmul';
+  
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #f9f9f9;
+    border-radius: 3px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      outline: none; 
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+    
+      outline: none; 
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #a0a0a0;
+      cursor: pointer;
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s, border-color 0.2s;
+
+      &:hover {
+        background: #e0e0e0;
+        border-color: #909090;
+      }
+
+      &:active {
+        background: #c0c0c0;
+        border-color: #808080;
+      }
   }
 `;

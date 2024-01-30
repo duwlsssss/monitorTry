@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MbtiSelector = () => {
+const MbtiSelector = ({ onSelectMBTI }) => {
   // MBTI 유형 목록 및 선택된 MBTI 유형 상태
   const mbtiTypes = [
     'INTJ', 'INFJ', 'ISTJ', 'ISFJ',
@@ -9,20 +9,16 @@ const MbtiSelector = () => {
     'ENTP', 'ENFP', 'ESTP', 'ESFP'
   ];
 
-  const [selectedMbti, setSelectedMbti] = useState('');
+  const [MBTI, setMBTI] = useState('');
 
-  // 선택된 MBTI 유형이 변경될 때 실행되는 함수
-  const handleMbtiChange = (e) => {
-    setSelectedMbti(e.target.value);
-  };
 
   return (
     <div>
       
       <select
-        id="mbti"
-        value={selectedMbti}
-        onChange={handleMbtiChange}
+        name="MBTI"
+        value={MBTI}
+        onChange={(event)=>{const selectedMBTI = event.target.value; setMBTI(selectedMBTI); onSelectMBTI(selectedMBTI);}}
         aria-label="MBTI 유형 선택"
       >
         <option value="">--MBTI 유형을 선택하세요--</option>

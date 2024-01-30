@@ -5,7 +5,7 @@ import Header from "./Header";
 const ImgBox = styled.div`
   width:200px;
   height:250px;
-  background-color:grey;
+  background-color:gainsboro;
   margin:40px;
 `
 

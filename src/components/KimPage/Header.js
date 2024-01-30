@@ -9,9 +9,9 @@ function Header() {
 
    
     <StyledHeader>
-      <Link to="/" className="navbar_item"><h3>홈</h3></Link>
-      <Link to="/MyMyungham" className="navbar_item"><h3>명함 만들기</h3></Link>
-      <Link to="/AboutUs" className="navbar_item"><h3>About Us</h3></Link>
+      <Link to="/" className="navbar_item"><h3>[ 홈 ]</h3></Link>
+      <Link to="/MyMyungham" className="navbar_item"><h3>[ 명함 만들기 ]</h3></Link>
+      <Link to="/AboutUs" className="navbar_item"><h3>[ About Us ]</h3></Link>
       </StyledHeader>
    
   );
@@ -24,7 +24,8 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-
+  font-family: 'DOSSaemmul';
+  color: blue;
 `;
 
 

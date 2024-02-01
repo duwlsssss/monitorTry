@@ -22,7 +22,6 @@ function Main(){
     <div>
        <Header/>
       <Title><strong>KimMyungsa.com</strong> 에 오신 것을 환영합니다?</Title>
-     
       <main>
         <MainContainer>
         <div className="logo">
@@ -42,8 +41,6 @@ function Main(){
   )
 }
 
-
-
 export default styled(Main)`
   height: 100%;
   background: white;
@@ -55,3 +52,4 @@ export default styled(Main)`
 
   
 `;
+

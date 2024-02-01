@@ -1,0 +1,57 @@
+body{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+  h1{
+    text-align: center;
+    padding-top: 2rem;
+  }
+  strong{
+    color: darkblue;
+  }
+  
+  .navbar_container {
+    display:flex;
+    flex-direction: row;
+    margin-top:1.5rem;
+    justify-content: center;
+    gap:10rem;
+  }
+
+  .sub{
+    text-align:center;
+    margin-top:1.5rem;
+    margin-bottom:2rem;
+    color:grey;
+  }
+
+  .printButton{
+    width: 140px;
+  }
+
+  form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5rem;
+  }
+
+  main{
+    height: 23rem;
+    text-align: center;
+    }
+  
+  footer{
+    text-align: center;
+    color: grey;
+  }
+
+  input{
+
+  }
+  
+  .logo{
+    margin-top: 3rem;
+  }
+  

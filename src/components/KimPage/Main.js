@@ -21,7 +21,7 @@ function Main(){
   return(
     <div>
        <Header/>
-      <Title><strong>KimMyungsa.com</strong> 에 오신 것을 환영합니다.</Title>
+      <Title><strong>KimMyungsa.com</strong> 에 오신 것을 환영합니다?</Title>
      
       <main>
         <MainContainer>
